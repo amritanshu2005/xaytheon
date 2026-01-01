@@ -42,56 +42,58 @@
       </div>
     </nav>
 
-    <section class="github-section">
-      <div class="container">
-        <h2 class="section-title" style="font-family:'Eightgon',sans-serif;">Community Highlights</h2>
+    <main>
+      <section class="github-section">
+        <div class="container">
+          <h2 class="section-title" style="font-family:'Eightgon',sans-serif;">Community Highlights</h2>
 
-        <div class="card" style="grid-column: 1 / -1;">
-          <div class="card-header">
-            <h3>Trending Now</h3>
-          </div>
-          <div class="card-body">
-            <form id="trend-form" class="github-form" autocomplete="off" style="margin-bottom: 16px;">
-              <div class="field-group" style="grid-column: span 3;">
-                <label for="trend-lang">Language</label>
-                <select id="trend-lang">
-                  <option value="">Any</option>
-                  <option>JavaScript</option>
-                  <option>TypeScript</option>
-                  <option>Python</option>
-                  <option>Go</option>
-                  <option>Rust</option>
-                  <option>Java</option>
-                  <option>C#</option>
-                  <option>C++</option>
-                </select>
-              </div>
-              <div class="field-group" style="grid-column: span 3;">
-                <label for="trend-topic">Topic</label>
-                <input id="trend-topic" type="text" placeholder="e.g. threejs, vite" />
-              </div>
-              <div class="field-group" style="grid-column: span 3;">
-                <label for="trend-window">Time Window</label>
-                <select id="trend-window">
-                  <option value="30">Last 30 days</option>
-                  <option value="7">Last 7 days</option>
-                  <option value="90">Last 90 days</option>
-                </select>
-              </div>
-              <div class="field-group" style="grid-column: span 3;">
-                <label for="trend-k">Top K</label>
-                <input id="trend-k" type="number" min="1" max="20" value="10" />
-              </div>
-              <button class="btn btn-primary" type="submit">Update</button>
-              <button class="btn btn-outline" type="button" id="trend-reset">Reset</button>
-              <div id="trend-status" class="github-status" aria-live="polite"></div>
-            </form>
+          <div class="card" style="grid-column: 1 / -1;">
+            <div class="card-header">
+              <h3>Trending Now</h3>
+            </div>
+            <div class="card-body">
+              <form id="trend-form" class="github-form" autocomplete="off" style="margin-bottom: 16px;">
+                <div class="field-group" style="grid-column: span 3;">
+                  <label for="trend-lang">Language</label>
+                  <select id="trend-lang">
+                    <option value="">Any</option>
+                    <option>JavaScript</option>
+                    <option>TypeScript</option>
+                    <option>Python</option>
+                    <option>Go</option>
+                    <option>Rust</option>
+                    <option>Java</option>
+                    <option>C#</option>
+                    <option>C++</option>
+                  </select>
+                </div>
+                <div class="field-group" style="grid-column: span 3;">
+                  <label for="trend-topic">Topic</label>
+                  <input id="trend-topic" type="text" placeholder="e.g. threejs, vite" />
+                </div>
+                <div class="field-group" style="grid-column: span 3;">
+                  <label for="trend-window">Time Window</label>
+                  <select id="trend-window">
+                    <option value="30">Last 30 days</option>
+                    <option value="7">Last 7 days</option>
+                    <option value="90">Last 90 days</option>
+                  </select>
+                </div>
+                <div class="field-group" style="grid-column: span 3;">
+                  <label for="trend-k">Top K</label>
+                  <input id="trend-k" type="number" min="1" max="20" value="10" />
+                </div>
+                <button class="btn btn-primary" type="submit">Update</button>
+                <button class="btn btn-outline" type="button" id="trend-reset">Reset</button>
+                <div id="trend-status" class="github-status" aria-live="polite"></div>
+              </form>
 
-            <div id="trend-results" class="repo-list"></div>
+              <div id="trend-results" class="repo-list"></div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
     <footer class="footer">
       <div class="container">
