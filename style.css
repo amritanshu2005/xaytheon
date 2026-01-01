@@ -350,16 +350,22 @@ body.eightgon-page {
 
 /* Buttons */
 .btn {
-    padding: 15px 30px;
-    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;          
+    padding: 0 30px;       
     border-radius: 8px;
-    font-size: 1em;
+    font-size: 0.95em;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
     text-decoration: none;
-    display: inline-block;
     font-family: 'OriginTech', sans-serif;
+    box-sizing: border-box; 
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
 }
 
 .btn-primary {
@@ -389,13 +395,9 @@ body.eightgon-page {
 }
 
 .btn-outline {
-    background: transparent;
     color: var(--text-primary);
     border: 1px solid var(--text-primary);
-    padding: 10px 20px;
-    font-size: 0.9em;
 }
-
 .btn-outline:hover {
     background: var(--text-primary);
     color: var(--bg-primary);
@@ -507,7 +509,10 @@ section {
     border-color: var(--accent-color);
 }
 
-.github-form .btn { grid-column: span 2; }
+.github-form .btn {
+    grid-column: span 2;
+    width: 100%; 
+}
 
 .github-form .remember {
     display: inline-flex;
@@ -607,13 +612,33 @@ section {
     .card.activity-card { grid-column: span 12; }
 }
 
+/* --- UPDATED MOBILE RESPONSIVENESS --- */
 @media (max-width: 768px) {
     .github-form {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        align-items: stretch;
     }
+
     .github-form .field-group,
     .github-form .btn,
-    .github-status { grid-column: span 1; }
+    .github-status {
+        grid-column: span 1;
+        width: 100%;
+    }
+
+    /* Fix for the Map getting cut off or being too tall */
+    #graph-wrap {
+        height: 400px !important; 
+    }
+
+    #graph-legend {
+        font-size: 10px;
+        padding: 6px;
+        top: 8px;
+        right: 8px;
+    }
 }
 
 /* Footer */
