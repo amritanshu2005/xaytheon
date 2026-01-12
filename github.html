@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,6 +11,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.44.4/dist/umd/supabase.min.js"></script>
   <script defer src="auth.js"></script>
 </head>
+
 <body class="eightgon-page">
   <div class="page-wrapper">
 
@@ -20,21 +22,23 @@
         </a>
         <ul class="nav-menu">
           <li><a class="nav-link" href="index.html#home">Home</a></li>
+          <li><a class="nav-link" href="analytics.html">Analytics</a></li>
           <li><a class="nav-link" href="community.html">Community Highlights</a></li>
           <li><a class="nav-link" href="explore.html">Explore by Topic</a></li>
           <li><a class="nav-link" href="contributions.html">Contributions</a></li>
           <li>
             <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-              <svg class="theme-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="5"/>
-                <line x1="12" y1="1" x2="12" y2="3"/>
-                <line x1="12" y1="21" x2="12" y2="23"/>
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-                <line x1="1" y1="12" x2="3" y2="12"/>
-                <line x1="21" y1="12" x2="23" y2="12"/>
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+              <svg class="theme-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="5" />
+                <line x1="12" y1="1" x2="12" y2="3" />
+                <line x1="12" y1="21" x2="12" y2="23" />
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                <line x1="1" y1="12" x2="3" y2="12" />
+                <line x1="21" y1="12" x2="23" y2="12" />
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
               </svg>
             </button>
           </li>
@@ -56,16 +60,18 @@
 
           <form id="github-form" class="github-form" autocomplete="off">
             <div id="gh-error" class="muted"></div>
-            
+
             <!-- Rate Limit Info Box -->
-            <div id="gh-rate-limit-warning" style="display: none; padding: 12px; margin-bottom: 16px; background: #fef3c7; border: 1px solid #f59e0b; border-radius: 8px; color: #92400e;">
+            <div id="gh-rate-limit-warning"
+              style="display: none; padding: 12px; margin-bottom: 16px; background: #fef3c7; border: 1px solid #f59e0b; border-radius: 8px; color: #92400e;">
               <strong>⚠️ Rate Limit Notice:</strong>
-              <span id="gh-rate-limit-message">GitHub API has request limits. Data is cached for 10 minutes to optimize usage.</span>
+              <span id="gh-rate-limit-message">GitHub API has request limits. Data is cached for 10 minutes to optimize
+                usage.</span>
             </div>
 
             <div class="field-group" style="grid-column: span 6;">
               <label for="gh-username">Username</label>
-              <input id="gh-username" name="username" type="text" placeholder="e.g. octocat"  />
+              <input id="gh-username" name="username" type="text" placeholder="e.g. octocat" />
             </div>
             <button class="btn btn-primary" type="submit">Load Dashboard</button>
             <button class="btn btn-outline" type="button" id="gh-clear">Clear Cache & Data</button>
@@ -99,7 +105,8 @@
                 <h3>Contributions</h3>
               </div>
               <div class="card-body">
-                <div id="gh-contrib-note" class="muted">Public contributions chart is shown below. If it’s unavailable, we’ll render an approximate heatmap from recent public activity.</div>
+                <div id="gh-contrib-note" class="muted">Public contributions chart is shown below. If it’s unavailable,
+                  we’ll render an approximate heatmap from recent public activity.</div>
                 <div id="gh-contrib-svg" class="contrib-svg" role="img" aria-label="Contributions calendar"></div>
               </div>
             </div>
@@ -126,34 +133,34 @@
           </div>
         </div>
 
-    <div class="cursor-container">
-      <span class="cursor-dot"></span>
-      <span class="cursor-dot"></span>
-      <span class="cursor-dot"></span>
-      <span class="cursor-dot"></span>
-      <span class="cursor-dot"></span>
-      <span class="cursor-dot"></span>
-      <span class="cursor-dot"></span>
-      <span class="cursor-dot"></span>
-    </div>
-   </div>
-    </section>
-
-    
-    
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-brand">
-            <span class="logo-text">XAYTHEON</span>
-            <p>Empowering the next generation of innovators</p>
-          </div>
+        <div class="cursor-container">
+          <span class="cursor-dot"></span>
+          <span class="cursor-dot"></span>
+          <span class="cursor-dot"></span>
+          <span class="cursor-dot"></span>
+          <span class="cursor-dot"></span>
+          <span class="cursor-dot"></span>
+          <span class="cursor-dot"></span>
+          <span class="cursor-dot"></span>
         </div>
-        <div class="footer-bottom">
-          <p>&copy; 2026 XAYTHEON. All rights reserved.</p>
+  </div>
+  </section>
+
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span class="logo-text">XAYTHEON</span>
+          <p>Empowering the next generation of innovators</p>
         </div>
       </div>
-    </footer>
+      <div class="footer-bottom">
+        <p>&copy; 2026 XAYTHEON. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
   </div>
 
   <!-- Contributions module -->
@@ -164,5 +171,5 @@
   <!-- Auth & app scripts -->
   <script src="script.js"></script>
 </body>
-</html>
 
+</html>
