@@ -91,6 +91,12 @@ body {
 [data-theme="dark"] .toggle-password img {
   filter: invert(1);
 }
+/* Fix low-contrast status text in dark mode */
+[data-theme="dark"] .github-status {
+  color: #e5e7eb !important;
+}
+
+
 
 
 
