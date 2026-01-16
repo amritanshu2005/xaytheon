@@ -4,14 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#6366f1">
+    <meta name="description"
+        content="XAYTHEON - Track your GitHub growth, earn achievements, and collaborate with the developer community">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="XAYTHEON">
     <title>XAYTHEON - Collaborative Innovation Platform</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="assets/icons/icon-192x192.png">
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.8.0/fonts/remixicon.css" rel="stylesheet" />
     <!-- Supabase SDK & auth bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.44.4/dist/umd/supabase.min.js"></script>
     <script src="theme.js"></script>
     <script defer src="auth.js"></script>
+    <script defer src="i18n.js"></script>
+    <script defer src="pwa.js"></script>
 </head>
 
 <body>
@@ -22,7 +32,7 @@
         <!-- Loading Screen -->
         <div id="loading-screen" class="loading-screen" role="status" aria-live="polite">
             <div class="loader" aria-hidden="true"></div>
-            <p>Initializing XAYTHEON...</p>
+            <p data-i18n="common.loading">Initializing XAYTHEON...</p>
         </div>
 
     </div>
@@ -39,7 +49,10 @@
                 <ul class="nav-menu">
                     <li><a class="nav-link" href="github.html">GitHub Dashboard</a></li>
                     <li><a class="nav-link" href="analytics.html">Analytics</a></li>
+                    <li><a class="nav-link" href="heatmap.html">Activity Map</a></li>
+                    <li><a class="nav-link" href="sentiment.html">Sentiment</a></li>
                     <li><a class="nav-link" href="watchlist.html">Watchlist</a></li>
+                    <li><a class="nav-link" href="compare.html">Compare</a></li>
                     <li><a class="nav-link" href="achievements.html">Achievements</a></li>
                     <li><a class="nav-link" href="community.html">Community Highlights</a></li>
                     <li><a class="nav-link" href="explore.html">Explore by Topic</a></li>
@@ -73,12 +86,12 @@
             <section id="home" class="hero">
                 <div class="hero-content">
                     <h1 class="hero-title">
-                        <span class="title-line">Welcome to</span>
+                        <span class="title-line" data-i18n="home.hero.title">Welcome to</span>
 
                         <span class="title-main title-main--logo">
                             <img src="assets/logo/thelogo.png"
                                 onerror="this.onerror=null;this.src='assets/logo/thelogo.png'" alt="XAYTHEON"
-                                class="title-logo-img" />
+                                class="title-logo-img" data-i18n="title" />
                         </span>
 
                         <!-- FIX APPLIED HERE -->
@@ -105,15 +118,16 @@
             <section data-requires-auth style="display:none; padding-top:0;">
                 <div class="container">
                     <div id="recommendations-area" class="hidden">
-                        <h2 class="section-title">Recommended for You</h2>
-                        <p class="section-subtitle">Based on your viewing history</p>
+                        <h2 class="section-title" data-i18n="home.recommendationsTitle">Recommended for You</h2>
+                        <p class="section-subtitle" data-i18n="home.recommendationsSubtitle">Based on your viewing
+                            history</p>
                         <div id="rec-list" class="grid-3">
                             <!-- Recommendations will be injected here -->
                         </div>
                     </div>
 
                     <div class="empty-rec-state hidden" id="rec-empty">
-                        <div class="muted" style="margin-top:20px;">
+                        <div class="muted" style="margin-top:20px;" data-i18n="home.emptyRecState">
                             Start exploring repositories to get personalized recommendations!
                         </div>
                     </div>
@@ -127,7 +141,7 @@
                 <div class="footer-content">
                     <div class="footer-brand">
                         <span class="logo-text">XAYTHEON</span>
-                        <p>Empowering the next generation of innovators</p>
+                        <p data-i18n="footer.tagline">Empowering the next generation of innovators</p>
                     </div>
                     <div class="footer-socials">
                         <a href="https://github.com/Saatvik-GT/xaytheon" target="_blank" aria-label="GitHub">
@@ -144,7 +158,7 @@
                     <span class="footer-label">XAYTHEON</span>
                 </div>
                 <div class="footer-bottom">
-                    <p>&copy; 2026 XAYTHEON. All rights reserved.</p>
+                    <p data-i18n="footer.copyright">&copy; 2026 XAYTHEON. All rights reserved.</p>
                 </div>
             </div>
         </footer>

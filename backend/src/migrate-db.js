@@ -15,6 +15,25 @@ const db = new sqlite3.Database(dbPath);
 console.log("🔄 Starting database migration...\n");
 
 db.serialize(() => {
+  // Create search_history table
+  db.run(`CREATE TABLE IF NOT EXISTS search_history (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    query TEXT NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY(user_id) REFERENCES users(id)
+  )`);
+
+  // Create search_logs table
+  db.run(`CREATE TABLE IF NOT EXISTS search_logs (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    query TEXT NOT NULL,
+    results_count INTEGER DEFAULT 0,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+  )`);
+
   // Check if columns already exist
   db.all("PRAGMA table_info(users)", (err, columns) => {
     if (err) {
@@ -29,8 +48,9 @@ db.serialize(() => {
     const hasViewHistory = columnNames.includes("view_history");
     const hasResetToken = columnNames.includes("password_reset_token");
     const hasResetExpires = columnNames.includes("password_reset_expires");
+    const hasPreferredLang = columnNames.includes("preferred_language");
 
-    if (hasRefreshToken && hasCreatedAt && hasUpdatedAt && hasViewHistory &&  hasResetToken && hasResetExpires) {
+    if (hasRefreshToken && hasCreatedAt && hasUpdatedAt && hasViewHistory && hasResetToken && hasResetExpires && hasPreferredLang) {
       console.log("✅ Database is already up to date!");
       db.close();
       return;
@@ -90,7 +110,7 @@ db.serialize(() => {
             console.error("❌ Error adding updated_at column:", err);
           } else {
             console.log("✅ Added updated_at column");
-          } 
+          }
         }
       );
     }
@@ -112,11 +132,24 @@ db.serialize(() => {
       db.run(
         "ALTER TABLE users ADD COLUMN password_reset_expires DATETIME",
         (err) => {
-          if (err){
+          if (err) {
             console.error("❌ Error adding password_reset_expires column:", err);
-          } else{
+          } else {
             console.log("✅ Added password_reset_expires column");
-          } 
+          }
+        }
+      );
+    }
+
+    if (!hasPreferredLang) {
+      db.run(
+        "ALTER TABLE users ADD COLUMN preferred_language TEXT DEFAULT 'en'",
+        (err) => {
+          if (err) {
+            console.error("❌ Error adding preferred_language column:", err);
+          } else {
+            console.log("✅ Added preferred_language column");
+          }
           // After all migrations, verify the schema
           db.all("PRAGMA table_info(users)", (err, newColumns) => {
             if (err) console.error("❌ Error verifying migration:", err);
@@ -128,6 +161,9 @@ db.serialize(() => {
           });
         }
       );
+    } else {
+      // Close if no preferred_language migration needed but we got here
+      db.close();
     }
   });
 });
