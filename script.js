@@ -1459,6 +1459,7 @@ function renderRepos(repos) {
                 <span>⑂ ${r.forks_count || 0}</span>
                 ${r.language ? `<span>${r.language}</span>` : ""}
                 <span>Updated ${timeAgo(r.updated_at)}</span>
+                <span><a href="health.html?repo=${r.full_name}" style="text-decoration:none; color:inherit;" title="Check Sustainability">🩺 Health</a></span>
             </div>
         </div>
     `;
